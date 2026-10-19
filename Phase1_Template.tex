@@ -87,7 +87,26 @@ The inputs is the email contents, and the output will be the summary (category, 
   Just detecting the class of the rules by predefined rules.
 
 \section{Comparative Analysis}
-  AI agent method is the best as it naturally supports the multi-step workflow of email processing.
+A compact comparison table is encouraged when it saves space.
+\begin{table}[ht]
+\small
+\centering
+\setlength{\tabcolsep}{4pt}
+\caption{Comparison of candidate AI approaches.}\label{tab:approach-comparison}
+\begin{tabular}{l p{4.2cm} p{4.2cm}}
+\toprule
+Approach & Expected benefit & Main limitation \\
+\midrule
+AI Agent & Multi-step email processing & Complex integration, error propagation \\
+Reinforcement Learning & Learns personalised preferences & Slow training, high data demand \\
+Naive Bayes & Fast lightweight text classification & Poor context understanding, not for summarisation \\
+Decision Tree & Interpretable classification rules & Easy overfitting, weak on new expressions \\
+Rule-based pipeline & No training, fully interpretable & Fragile for informal unseen text \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
 
 \section{Expected Impact \& Project Feasibility}
 If the project is successful, it will help students to manage their time more efficiently and reduce the time spent on checking emails. It can also detecting the phishing and spam emails to avoid potential harm.This project combine the email summarization and the schedule generation, which is very novel and useful.The data need is the email content and the user feedback, which is easy to collect. We plan to let user install the agent application and collect data after the user permission. Other pre-trained model will be trained based on the open-source dataset. The project is feasible and can be completed within the time frame. The biggest risk is the user privacy, but we will not collect any personal information if the user provides consent.
