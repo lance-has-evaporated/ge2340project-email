@@ -1,0 +1,183 @@
+% ======================= COMPILATION NOTICE =======================
+% Before compiling, place ge2340_project.sty and all three template
+% files (phase1_template.tex, phase2_template.tex, and
+% contribution_template.tex) in the same directory.
+% Keep the style file named ge2340_project.sty so that the templates
+% can load it correctly.
+% ==================================================================
+\documentclass{article}
+% ======================= REQUIRED STYLE =======================
+\PassOptionsToPackage{numbers}{natbib}
+\usepackage[preprint]{ge2340_project}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+% \usepackage{tabularx}
+% ======================== ASSIGNMENT CONSTRAINTS ========================
+% Phase 1 is GROUP WORK. Each group has 3--4 students.
+% The proposal must be in English and submitted as a PDF.
+% The complete PDF must not exceed 2 pages, including figures and references.
+% Do NOT rename, remove, or reorder the required section titles below.
+% Replace only the bracketed placeholders and remove instructional text before submission.
+% =======================================================================
+\title{Phase 1: AI Project Proposal\\
+\large Email NLP Content Summarization and Schedule Planning Assistant}
+% Use the fourth author block only for a four-member group.
+\author{
+  FENG Yuxiang (Student ID: 58520850)\\
+  \texttt{yuxiafeng2-c@my.cityu.edu.hk}
+  \And 
+  SOETANTO Darrel Edbert (Student ID: 58586617)\\
+  \texttt{dsoetanto2-c@my.cityu.edu.hk}
+  \AND
+  CHEN Lehan (Student ID: 58520456)\\
+  \texttt{lehanchen2-c@my.cityu.edu.hk}
+  \And
+  TANG Shun Chong Adrian (Student ID: 60313420)\\
+  \texttt{adriatang6-c@my.cityu.edu.hk}
+}
+\begin{document}
+\maketitle
+\noindent\textbf{Project topic:} Extract actionable tasks and events from emails using NLP, generate schedule plans automatically.\\
+\textbf{Target users/stakeholders:} Students and office staff who receive high volumes of event, meeting and task emails.
+% ======================= Required sections (do NOT rename) =======================
+\section{Problem Definition \& Scope}
+\subsection{Problem}
+Users receive a large volume of emails containing meetings, deadlines, reminders and action items. Manually reading each email, extracting time information and adding tasks to calendars is repetitive and time-consuming.
+Current situation: Email clients lack intelligent extraction for structured schedule information. Users must scan long email text, identify dates, times, locations and required actions manually before updating their personal schedule. Important deadlines or meeting invites are easily overlooked in crowded inboxes.
+Affected users: Students and administrative staff who frequently receive emails with meeting notices, assignment deadlines and event invitations.
+Importance: Automatically parsing emails reduces manual labour in schedule management, lowers the risk of missed deadlines and improves personal productivity.
+\subsection{Scope}
+Ingest plain email text, apply NLP to identify key entities including event time, location, participants and task descriptions. Generate concise email summaries and extract structured schedule entries. Rank extracted schedule items and produce a suggested daily/weekly plan for users to review and accept.
+
+Features excluded from scope:
+Direct write access to real email inboxes or calendar APIs; automatic sending of email replies. The system will not handle image/OCR or encrypted email content. It will only produce proposed schedule entries for user confirmation, rather than directly modifying user calendars without approval. Complex cross-email conflict detection is reserved for future extensions and excluded from this prototype.
+
+\section{AI Task Formulation}
+Task: Named entity recognition (NER) on email text + text summarization, followed by ranking extracted schedule items to produce a recommended timeline.
+Inputs: Raw plain-text email body.
+Outputs: Short natural-language summary of email content; structured extracted entities (date, time, task type, location); ranked list of proposed schedule items.
+Constraints: Output schedule entries must preserve original email semantics. Detected time entities must have valid, parseable date/time values.
+Evaluation: Summary quality measured by human readability and factual correctness. Extraction accuracy measured against manually labelled email datasets. Schedule ranking quality judged by user preference surveys.
+Data source: Public email text datasets plus manually annotated student/office email samples. We will remove all personal identifiable information before use.
+
+\section{Proposed AI Approaches}
+Present multiple plausible AI approaches. For each approach, briefly explain the core method, required data/resources, expected workflow, and practical feasibility. Divergent solutions are encouraged; do not present only one method under different names.
+\subsection{Fine-tuned Transformer for NER + Summarization}
+\begin{itemize}
+  \item Benefits
+    \begin{itemize}
+      \item Strong performance on both entity extraction and abstractive summarization; handles informal email writing style well.
+    \end{itemize}
+  \item Weaknesses
+    \begin{itemize}
+      \item Requires annotated labelled data; larger model, higher inference cost.
+    \end{itemize}
+  \item Core method
+    \begin{itemize}
+      \item Fine-tune a lightweight pre-trained transformer model to perform named entity recognition for time/location/task entities, alongside text summarization. Combine extracted entities to build candidate schedule items.
+    \end{itemize}
+  \item Required resources
+    \begin{itemize}
+      \item Laptop with PyTorch, sufficient RAM for small transformer models.
+    \end{itemize}
+  \item Required data
+    \begin{itemize}
+      \item Email text corpus with manual annotations for time, task and event entities; human-rated summary quality labels.
+    \end{itemize}
+\end{itemize}
+\subsection{Rule-based NLP + Classical Text Ranking}
+\begin{itemize}
+  \item Benefits
+    \begin{itemize}
+      \item Fully interpretable, fast inference, no large labelled dataset required.
+    \end{itemize}
+  \item Weaknesses
+    \begin{itemize}
+      \item Struggles with ambiguous phrasing, informal language or complex nested time expressions.
+    \end{itemize}
+  \item Core method
+    \begin{itemize}
+      \item Use regex and handwritten grammar rules to extract dates and tasks. Generate extractive summaries by selecting high-relevance sentences, then rank schedule items with predefined priority rules.
+    \end{itemize}
+  \item Required resources
+    \begin{itemize}
+      \item Basic Python environment, no GPU required.
+    \end{itemize}
+  \item Required data
+    \begin{itemize}
+      \item Unlabelled email samples for rule testing; small set of examples to tune priority weights.
+    \end{itemize}
+\end{itemize}
+\subsection{RLHF for Schedule Preference Ranking}
+\begin{itemize}
+  \item Benefits
+    \begin{itemize}
+      \item Learns personalised user preferences for schedule ordering from pairwise human comparisons.
+    \end{itemize}
+  \item Weaknesses
+    \begin{itemize}
+      \item Most complex pipeline; requires large amounts of pairwise user preference feedback.
+    \end{itemize}
+  \item Core method
+    \begin{itemize}
+      \item Generate candidate schedule lists from extracted events, collect human pairwise preference comparisons and optimise a reward model to reorder schedule suggestions.
+    \end{itemize}
+  \item Required resources
+    \begin{itemize}
+      \item PyTorch environment, longer training time.
+    \end{itemize}
+  \item Required data
+    \begin{itemize}
+      \item Pairs of candidate schedules with human preference votes.
+    \end{itemize}
+\end{itemize}
+
+\section{Comparative Analysis}
+A compact comparison table is encouraged when it saves space.
+\begin{table}[t]
+  \centering
+  \caption{Comparison of candidate AI approaches.}\label{tab:approach-comparison}
+  \begin{tabular}{lccc}
+    \toprule
+    Approach & Expected benefit & Main requirement & Main limitation \\
+    \midrule
+    Fine-tuned Transformer & Handles informal email text, NER + summary & Annotated email entity data & Larger model, higher compute \\
+    Rule-based NLP & Fast, interpretable, no GPU & Handcrafted extraction rules & Poor on ambiguous language \\
+    RLHF Schedule Ranking & Learns personalised ordering & Pairwise human preference data & Complex pipeline, heavy data demand \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Expected Impact \& Project Feasibility}
+Expected benefit: Reduce manual time spent reading emails and creating schedules; lower the chance of missed meetings and deadlines.
+Novelty: The system combines email summarization and structured schedule extraction tailored for student inbox scenarios.
+Value: High practical value for students receiving frequent administrative, academic and event emails.
+Data: Public email datasets and manually anonymised email samples.
+Data collection plan: Collect anonymised email text, manually label event entities. Run user surveys to rate summary quality and preferred schedule ordering.
+Implementation: Build a pipeline: email text input $\rightarrow$ NLP extraction $\rightarrow$ summary generation $\rightarrow$ schedule ranking. Evaluate extraction accuracy and user satisfaction.
+Tools: Python, Hugging Face Transformers, spaCy, PyTorch.
+Risks: Raw emails contain private personal information.
+Mitigation: All input emails will be fully anonymised before processing. No sensitive data stored permanently.
+Access to hardware: Laptop CPU sufficient for rule-based prototype; GPU optional for transformer fine-tuning.
+Access to software: Open-source Python NLP libraries, freely available.
+Access to data: Public email corpora and anonymised manually collected email samples.
+
+% ======================= References (included in page limit) =======================
+% Cite sources in the text and replace the sample entry below.
+\begin{thebibliography}{9}
+\small
+\bibitem{huggingface}
+Lewis, M. et al., ``BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension,'' \emph{ACL}, 2020.
+\bibitem{spacy}
+Honnibal, M. and Montani, I., ``spaCy 2: New features and improvements,'' 2017.
+\end{thebibliography}
+% Course policy reminder: LLMs may be used to refine and polish writing,
+% but may not be used to generate the submission text from scratch.
+\end{document}
