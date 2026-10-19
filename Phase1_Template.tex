@@ -90,74 +90,24 @@ Data source: Survey students for their opinion on how a set of generated timetab
 
 Present multiple plausible AI approaches. For each approach, briefly explain the core method, required data/resources, expected workflow, and practical feasibility. Divergent solutions are encouraged; do not present only one method under different names.
 
-\subsection{Convolutional NN}
-\begin{itemize}
-  \item Benefits
-    \begin{itemize}
-      \item Better at preserving adjacency data
-        \begin{itemize}
-          \item More accurate scores regarding “adjacency”
-        \end{itemize}
-    \end{itemize}
-  \item Weaknesses
-    \begin{itemize}
-      \item (to be written)
-    \end{itemize}
-  \item Core method
-    \begin{itemize}
-      \item Run a convolutional kernel across the squares of the timetable before feeding the results through a simple fully connected neural network.
-    \end{itemize}
-  \item Required resources
-    \begin{itemize}
-      \item A laptop running Pytorch
-    \end{itemize}
-  \item Required data
-    \begin{itemize}
-      \item A set of randomly generated schedules and scores assigned by volunteers.
-    \end{itemize}
-\end{itemize}
+\subsection{AI Agent}
+  build an agent with several tools, including a email reader, summarizer, report generator and scheduler. The agent will read emails, summarize them, and schedule tasks based on the summarized content. And the task can be timely triggered by the agent based on the email content. The agent will be able to learn from user feedback and improve its performance over time.
 
-\subsection{Linear regression}
-\begin{itemize}
-  \item Benefits
-    \begin{itemize}
-      \item Trivial to optimise.
-    \end{itemize}
-  \item Weaknesses
-    \begin{itemize}
-      \item (to be written)
-    \end{itemize}
-  \item Core method
-    \begin{itemize}
-      \item (to be written)
-    \end{itemize}
-  \item Required resources
-    \begin{itemize}
-      \item (to be written)
-    \end{itemize}
-  \item Required data
-    \begin{itemize}
-      \item (to be written)
-    \end{itemize}
-\end{itemize}
+\subsection{Reinforcement Learning}
+  The agent will treat the received emails as a environment and the actions taken by the agent as a policy. The function
 
-RLHF?
+\subsection{naive bayes}
+  Use a naive bayes classifier to classify the emails into different categories based on the words frequence and the context of the email. The classifier will first be trained on a labeled dataset of emails and then used to classify new emails.
+\subsection{decision tree}
+  
+  Use a decision tree classifier to classify the emails into different categories based on the words frequence and the context of the email. The classifier will first be trained on a labeled dataset of emails and then used to classify new emails.
+\subsection{hard-code Rule-based pipeline}
+  Juest detecting the class of the rules by predefined rules.
+
 
 \section{Comparative Analysis}
+  I think AI agent method is the best.
 
-A compact comparison table is encouraged when it saves space.
-\begin{table}[t]
-  \centering
-  \caption{Comparison of candidate AI approaches.}\label{tab:approach-comparison}
-  \begin{tabular}{lccc}
-    \toprule
-    Approach & Expected benefit & Main requirement & Main limitation \\
-    \midrule
-    CNN & Learns timetable patterns & Labeled schedule ratings & Needs more data \\
-    CNN & Learns timetable patterns & Labeled schedule ratings & Needs more data \\
-    \bottomrule
-  \end{tabular}
-\end{table}
 
 
 
