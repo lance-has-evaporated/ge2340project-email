@@ -1,0 +1,35 @@
+# LaTeX 核心临时文件
+*.aux
+*.log
+*.toc
+*.out
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+
+# 参考文献相关文件 (BibTeX / Biber)
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# 索引及其他宏包缓存
+*.idx
+*.ind
+*.ilg
+*.glo
+*.acn
+*.acr
+*.alg
+*.ist
+*.upa
+*.upb
+
+# the hot key files
+*.ahk
+
+# macos
+*.DS_Store

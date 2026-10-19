@@ -1,0 +1,95 @@
+% ======================= COMPILATION NOTICE =======================
+% Before compiling, place ge2340_project.sty and all three template
+% files (phase1_template.tex, phase2_template.tex, and
+% contribution_template.tex) in the same directory.
+% Keep the style file named ge2340_project.sty so that the templates
+% can load it correctly.
+% ==================================================================
+
+\documentclass{article}
+
+% ======================= REQUIRED STYLE =======================
+\usepackage[preprint]{ge2340_project}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue
+}
+
+% ======================== COMPLETION REQUIREMENTS ========================
+% Submit one completed statement with the Phase 1 package and another with
+% the Phase 2 package. All group members must sign the statement.
+% State both the contribution percentage and the specific tasks completed
+% by every member. All percentages must sum to 100%.
+% Do not change the headings or declaration text.
+% =======================================================================
+
+\title{GE2340 Course Project\\
+\large Contribution Statement}
+\author{2026/2027 Semester A}
+
+\newcommand{\blankline}[1]{\rule{#1}{0.4pt}}
+\newcommand{\memberblock}[5]{%
+  \subsection*{Member #1}
+  \begin{tabularx}{\textwidth}{@{}>{\bfseries}l X@{}}
+    Name: & \underline{#2} \\
+    Student ID: & \underline{#3} \\
+    Contribution percentage: & \underline{#4}\% \\
+  \end{tabularx}
+  \vspace{0.4em}
+
+  \noindent\textbf{Specific tasks completed and deliverables produced:}\\[0.4em]
+  #5\\
+  \vspace{0.7em}
+}
+
+\begin{document}
+\maketitle
+
+\noindent
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}l X@{}}
+  Phase: & $\boxtimes$ Phase 1 \hspace{2em} $\square$ Phase 2 \\
+  Group number: & \underline{12} \\
+  Project title: & \underline{Optimizing Campus Course Selection and Scheduling} \\
+\end{tabularx}
+
+\vspace{0.8em}
+\noindent\textit{Complete all applicable member blocks. If the group has three members, write ``N/A'' in the Member 4 block. Describe concrete work rather than general statements such as ``helped with the project.''}
+
+\memberblock{1}{FENG, Yuxiang}{58520850}{25}{
+  Provided the topics, and do the research of whether the solution is feasible. Set up the LaTeX environment and make it a github repository (\href{https://github.com/Cuber-Feng/GE2340_Project}{GitHub Repository Link}).
+}
+\memberblock{2}{SOETANTO, Darrel Edbert}{58586617}{25}{Something}
+\memberblock{3}{CHEN, Lehan}{58520456}{25}{Something}
+\memberblock{4}{TANG Shun Chong Adrian}{60313420}{25}{Something}
+
+\section*{Contribution Summary}
+\noindent
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}l X@{}}
+  Total contribution percentage: & \underline{100}\% \quad (must equal 100\%) \\
+  Remarks (if any): & \blankline{5cm} \\
+                    & \blankline{5cm} \\
+\end{tabularx}
+
+\section*{Declaration and Signatures}
+We confirm that the information above is accurate, that the listed percentages reflect our relative contributions to this phase of the project, and that the specific tasks were completed as stated. We understand that this statement may be used to adjust individual scores.
+
+\vspace{1em}
+\begin{tabularx}{\textwidth}{@{}c X c X@{}}
+  \textbf{Member 1 signature} & \includegraphics[height=1cm]{./signature/Cody_Signature.png} & \textbf{Date} & \underline{Oct-19, 2026} \\[2.2em]
+  \textbf{Member 2 signature} & \includegraphics[height=1cm]{./signature/Darrel_signature.jpeg} & \textbf{Date} & \underline{Oct-19, 2026} \\[2.2em]
+  \textbf{Member 3 signature} & \blankline{3.2cm} & \textbf{Date} & \underline{Oct-19, 2026} \\[2.2em]
+  \textbf{Member 4 signature} & \blankline{3.2cm} & \textbf{Date} & \underline{Oct-19, 2026} \\
+\end{tabularx}
+
+\end{document}

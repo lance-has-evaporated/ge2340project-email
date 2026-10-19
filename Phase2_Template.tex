@@ -1,0 +1,124 @@
+% ======================= COMPILATION NOTICE =======================
+% Before compiling, place ge2340_project.sty and all three template
+% files (phase1_template.tex, phase2_template.tex, and
+% contribution_template.tex) in the same directory.
+% Keep the style file named ge2340_project.sty so that the templates
+% can load it correctly.
+% ==================================================================
+
+\documentclass{article}
+
+% ======================= REQUIRED STYLE =======================
+\usepackage[preprint]{ge2340_project}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{float}
+
+% ======================== ASSIGNMENT CONSTRAINTS ========================
+% Phase 2 is GROUP WORK. Each group has 3--4 students.
+% The report must be in English and submitted as a PDF.
+% The complete PDF must be 4--6 pages, including references.
+% Do NOT rename, remove, or reorder the required section titles below.
+% Use an appropriate number of tables and figures for qualitative and
+% quantitative results. Do not paste large blocks of source code.
+% Replace only the bracketed placeholders and remove instructional text before submission.
+% =======================================================================
+
+\title{Phase 2: AI Project Report\\
+\large [Concise Project Title]}
+
+% Use the fourth author block only for a four-member group.
+\author{
+  First Student (Student ID: 00000001)\\
+  \texttt{first.student@my.cityu.edu.hk}
+  \And
+  Second Student (Student ID: 00000002)\\
+  \texttt{second.student@my.cityu.edu.hk}
+  \AND
+  Third Student (Student ID: 00000003)\\
+  \texttt{third.student@my.cityu.edu.hk}
+  \And
+  Fourth Student (Student ID: 00000004)\\
+  \texttt{fourth.student@my.cityu.edu.hk}
+}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Project repository (if applicable):} \url{https://github.com/[organisation-or-user]/[repository]}\\
+\textbf{Project demo or supplementary link (if applicable):} \url{https://[link]}
+
+% ======================= Required sections (do NOT rename) =======================
+
+\section{Introduction \& Problem Recap}
+Briefly recap the campus or student-life problem, target users, project scope, and intended AI task. State the implemented solution and summarize the main project outcome. Keep this section concise rather than repeating the full Phase 1 proposal.
+
+[Replace this instruction with your report content.]
+
+\section{Data Collection \& Methodology}
+Describe how the data were obtained, created, sampled, labelled, cleaned, and split. Report relevant dataset sizes and characteristics. Explain the selected AI methodology, baselines, evaluation design, and any privacy, consent, fairness, or safety measures. Justify major methodological choices.
+
+[Replace this instruction with your report content.]
+
+\section{Implementation Details}
+Describe the system pipeline, model/configuration, tools, training or inference procedure, and deployment or interface design. Provide enough detail for readers to understand and reproduce the workflow. Do not paste large blocks of code; use a public repository link when the project involves extensive coding.
+
+% A compact architecture or workflow figure is encouraged.
+% \begin{figure}[t]
+%   \centering
+%   \fbox{\rule[-0.4cm]{0cm}{3.2cm}\rule[-0.4cm]{11cm}{0cm}}
+%   \caption{System architecture or end-to-end workflow (replace placeholder).}
+%   \label{fig:workflow}
+% \end{figure}
+
+[Replace this instruction with your report content.]
+
+\section{Results \& Evaluation}
+Present qualitative and quantitative results using appropriate metrics, baselines, tables, figures, examples, or user feedback. Explain the evaluation protocol and analyze whether the results support the project goals. Include important negative results or failure cases rather than reporting only successful examples.
+
+% \begin{table}[t]
+%   \centering
+%   \caption{Main evaluation results (replace metrics and values).}
+%   \label{tab:main-results}
+%   \begin{tabular}{lcc}
+%     \toprule
+%     Method/Setting & Metric 1 $\uparrow$ & Metric 2 $\downarrow$ \\
+%     \midrule
+%     [Baseline] & [\ldots] & [\ldots] \\
+%     [Implemented solution] & [\ldots] & [\ldots] \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+[Replace this instruction with your report content.]
+
+\section{Discussion}
+Discuss the solution's strengths and weaknesses, practical benefits and risks, limitations, robustness, and generalizability. Describe unique team experiences, unexpected findings, failed attempts, and lessons learned during data collection and implementation. Explain how the system could be improved or responsibly deployed.
+
+[Replace this instruction with your report content.]
+
+\section{Conclusion}
+Summarize the implemented solution, the most important results, the team's unique findings, the principal limitations, and the most promising next step. Do not introduce new experiments or unsupported claims here.
+
+[Replace this instruction with your report content.]
+
+% ======================= References (included in page limit) =======================
+% Cite sources in the text and replace the sample entry below.
+\begin{thebibliography}{9}
+\small
+\bibitem{sample}
+[Author(s)], ``[Title],'' \emph{[Venue or Source]}, [Year].
+\end{thebibliography}
+
+% Course policy reminder: LLMs may be used to refine and polish writing,
+% but may not be used to generate the submission text from scratch.
+
+\end{document}
