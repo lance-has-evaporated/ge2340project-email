@@ -80,6 +80,10 @@ Evaluation: Judge accuracy of suggestions; Scores should agree with the opinion 
 
 Data source: Survey students for their opinion on how a set of generated timetables should be scored. No privacy, consent, or access considerations needed.
 
+======
+
+The inputs is the email contents, and the output will be the summary (category, bullet-points, etc.) of each email, the schedule created by the AI. As the project is highly related to the campus and student life, it should have a better performance on the typical emails which students receives. To evaluate the performance, we can apply the precision, 
+
 \section{Proposed AI Approaches}
 
 \subsection{AI Agent}
@@ -88,12 +92,13 @@ Data source: Survey students for their opinion on how a set of generated timetab
 \subsection{Reinforcement Learning}
   The agent will treat the received emails as a environment and learn to take actions based on the user feedback.
 
-\subsection{Naive Bayes}
-  Use a naive bayes classifier  based on the word frequence and the context of the email. 
-\subsection{Decision Tree}
-  Use a decision tree classifier based on special words of the email. 
-\subsection{Hard-code Rule-based pipeline}
-  Just detecting the class of the rules by predefined grammar and words rules.
+\subsection{naive bayes}
+  Use a naive bayes classifier to classify the emails into different categories based on the words frequence and the context of the email. The classifier will first be trained on a labeled dataset of emails and then used to classify new emails.
+\subsection{decision tree}
+  
+  Use a decision tree classifier to classify the emails into different categories based on the words frequence and the context of the email. The classifier will first be trained on a labeled dataset of emails and then used to classify new emails.
+\subsection{hard-code Rule-based pipeline}
+  Just detecting the class of the rules by predefined rules.
 
 
 \section{Comparative Analysis}
