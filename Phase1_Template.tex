@@ -59,24 +59,18 @@
 
 \section{Problem Definition \& Scope}
 \subsection{Problem}
-Scheduling a well organised timetable with one’s desired lessons is difficult, especially when allowed to choose from a large list of courses with many timeslots each.
 
-Current situation: The AIMS platform is ill suited to effective scheduling as its interface makes considering possible timetables difficult, let alone deciding on the best of one’s possible timetables.
+The university students will receive a large volume of emails everyday, which contains assignment / quiz / exam announcement, event invitation, security alert, bank statement notification, promotion, etc. Spending time on checking these emails can be annoying. And the performance of filter function by email apps like Gmail and Outlook is not good enough. After checking these emails, make it to the schedule can also be another issues to the university students.
 
-Affected users: Students with large flexibility in selecting courses, particularly students with a large number of GE courses to select from or Advanced Standing students with too many leftover credits.
+\subsection{Scope}
 
-Importance: Simplifying the course selection process would allow students to complete the Add/Drop process more efficiently. This could also improve the performance of the AIMS website by reducing the duration of the initial rush when students swarm to select their preferred courses.
-
-\subsection{Scope}Generate a list of valid schedules by brute force based on the user’s selection of courses and rank them to prefer features of schedules based on selected criteria. Selection criteria would include selecting for lessons that avoid certain hours or days, or lessons that are early or late in the day Return the top scoring schedules from best to worst for the user to select from.
-
-Features excluded from scope: The ability for the AI to select the actual courses being taken alongside scheduling them, including ranking the suitability of courses by topic, difficulty, type, and location (Could be suitable for a more advanced implementation but beyond the scope of this version). Producing a strong schedule by AI directly (Producing all valid schedules by brute force and selecting from them is a simpler task).
-
+The project will contains classification of the emails, summarize an email from paragraph form to bullet-point form, integrate different emails to generate a schedule. But we will make an agent to help users to write emails.
 
 \section{AI Task Formulation}
 
 Task: Rank a set of timetables based on selected selection criteria, including, but not necessarily limited to, time of day, day of week, and consecutiveness
 
-Inputs: List of occupied schedule slots / Slot in schedule’s status as occupied / unoccupied (6 days of the week × 13 possible hours per day = 78 binary inputs)
+Inputs: List of occupied schedule slots / Slot in schedule's status as occupied / unoccupied (6 days of the week × 13 possible hours per day = 78 binary inputs)
 
 Outputs: Scores based on various criteria (eg: “earliness”, “lateness”, “consecutiveness”, etc; one output per criteria, potentially with an additional final layer for an overall aggregate score)
 
@@ -105,7 +99,7 @@ Present multiple plausible AI approaches. For each approach, briefly explain the
     \end{itemize}
   \item Core method
     \begin{itemize}
-      \item Run a convolutional kernel across the squares of the timetable before feeding the results through a simple fully connected neural network.
+      \item Run a convolution kernel across the squares of the timetable before feeding the results through a simple fully connected neural network.
     \end{itemize}
   \item Required resources
     \begin{itemize}
@@ -121,7 +115,7 @@ Present multiple plausible AI approaches. For each approach, briefly explain the
 \begin{itemize}
   \item Benefits
     \begin{itemize}
-      \item Trivial to optimise.
+      \item Trivial to optimize.
     \end{itemize}
   \item Weaknesses
     \begin{itemize}
