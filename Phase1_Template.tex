@@ -52,8 +52,8 @@
 \begin{document}
 \maketitle
 
-\noindent\textbf{Project topic:} Students struggle to schedule their timetables well through AIMS.\\
-\textbf{Target users/stakeholders:} Students using AIMS, particularly students with large flexibility in course scheduling.
+\noindent\textbf{Project topic:} Students struggle to check their emails and schedule their event.\\
+\textbf{Target users/stakeholders:} University students who receive a large amount of emails everyday.
 
 % ======================= Required sections (do NOT rename) =======================
 
@@ -68,21 +68,7 @@ The project will contains classification of the emails, summarize an email from 
 
 \section{AI Task Formulation}
 
-Task: Rank a set of timetables based on selected selection criteria, including, but not necessarily limited to, time of day, day of week, and consecutiveness
-
-Inputs: List of occupied schedule slots / Slot in schedule's status as occupied / unoccupied (6 days of the week × 13 possible hours per day = 78 binary inputs)
-
-Outputs: Scores based on various criteria (eg: “earliness”, “lateness”, “consecutiveness”, etc; one output per criteria, potentially with an additional final layer for an overall aggregate score)
-
-Constraints: Scores outputted from 0-100. Model will only be fed valid timetables (ie. without collisions)
-
-Evaluation: Judge accuracy of suggestions; Scores should agree with the opinion of users.
-
-Data source: Survey students for their opinion on how a set of generated timetables should be scored. No privacy, consent, or access considerations needed.
-
-======
-
-The inputs is the email contents, and the output will be the summary (category, bullet-points, etc.) of each email, the schedule created by the AI. As the project is highly related to the campus and student life, it should have a better performance on the typical emails which students receives. To evaluate the performance, we can apply the precision, 
+The inputs is the email contents, and the output will be the summary (category, bullet-points, etc.) of each email, the schedule created by the AI. As the project is highly related to the campus and student life, it should have a better performance on the typical emails which students receives. To evaluate the performance, we can apply the precision, recall and other measurement to find the difference of performance between different solutions.
 
 \section{Proposed AI Approaches}
 
@@ -92,20 +78,16 @@ The inputs is the email contents, and the output will be the summary (category, 
 \subsection{Reinforcement Learning}
   The agent will treat the received emails as a environment and learn to take actions based on the user feedback.
 
-\subsection{naive bayes}
+\subsection{Naive Bayes}
   Use a naive bayes classifier to classify the emails into different categories based on the words frequence and the context of the email. The classifier will first be trained on a labeled dataset of emails and then used to classify new emails.
-\subsection{decision tree}
-  
-  Use a decision tree classifier to classify the emails into different categories based on the words frequence and the context of the email. The classifier will first be trained on a labeled dataset of emails and then used to classify new emails.
-\subsection{hard-code Rule-based pipeline}
-  Just detecting the class of the rules by predefined rules.
 
+\subsection{Decision Tree}
+  Use a decision tree classifier to classify the emails into different categories based on the words frequence and the context of the email. The classifier will first be trained on a labeled dataset of emails and then used to classify new emails.
+\subsection{Hard-Code Rule-based Pipeline}
+  Just detecting the class of the rules by predefined rules.
 
 \section{Comparative Analysis}
   AI agent method is the best as it naturally supports the multi-step workflow of email processing.
-
-  
-
 
 \section{Expected Impact \& Project Feasibility}
 If the project is successful, it will help students to manage their time more efficiently and reduce the time spent on checking emails. It can also detecting the phishing and spam emails to avoid potential harm.This project combine the email summarization and the schedule generation, which is very novel and useful.The data need is the email content and the user feedback, which is easy to collect. We plan to let user install the agent application and collect data after the user permission. Other pre-trained model will be trained based on the open-source dataset. The project is feasible and can be completed within the time frame. The biggest risk is the user privacy, but we will not collect any personal information if the user provides consent.
