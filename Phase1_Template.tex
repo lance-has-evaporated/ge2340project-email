@@ -82,54 +82,29 @@ Data source: Survey students for their opinion on how a set of generated timetab
 
 \section{Proposed AI Approaches}
 
-Present multiple plausible AI approaches. For each approach, briefly explain the core method, required data/resources, expected workflow, and practical feasibility. Divergent solutions are encouraged; do not present only one method under different names.
-
 \subsection{AI Agent}
-  build an agent with several tools, including a email reader, summarizer, report generator and scheduler. The agent will read emails, summarize them, and schedule tasks based on the summarized content. And the task can be timely triggered by the agent based on the email content. The agent will be able to learn from user feedback and improve its performance over time.
+  build an agent with several tools, including a email reader, summarizer, report generator and scheduler.  And the task can be timely triggered by the agent based on the email content.
 
 \subsection{Reinforcement Learning}
-  The agent will treat the received emails as a environment and the actions taken by the agent as a policy. The function
+  The agent will treat the received emails as a environment and learn to take actions based on the user feedback.
 
-\subsection{naive bayes}
-  Use a naive bayes classifier to classify the emails into different categories based on the words frequence and the context of the email. The classifier will first be trained on a labeled dataset of emails and then used to classify new emails.
-\subsection{decision tree}
-  
-  Use a decision tree classifier to classify the emails into different categories based on the words frequence and the context of the email. The classifier will first be trained on a labeled dataset of emails and then used to classify new emails.
-\subsection{hard-code Rule-based pipeline}
-  Juest detecting the class of the rules by predefined rules.
+\subsection{Naive Bayes}
+  Use a naive bayes classifier  based on the word frequence and the context of the email. 
+\subsection{Decision Tree}
+  Use a decision tree classifier based on special words of the email. 
+\subsection{Hard-code Rule-based pipeline}
+  Just detecting the class of the rules by predefined grammar and words rules.
 
 
 \section{Comparative Analysis}
-  I think AI agent method is the best.
+  AI agent method is the best as it naturally supports the multi-step workflow of email processing.
 
-
+  
 
 
 \section{Expected Impact \& Project Feasibility}
+If the project is successful, it will help students to manage their time more efficiently and reduce the time spent on checking emails. It can also detecting the phishing and spam emails to avoid potential harm.This project combine the email summarization and the schedule generation, which is very novel and useful.The data need is the email content and the user feedback, which is easy to collect. We plan to let user install the agent application and collect data after the user permission. Other pre-trained model will be trained based on the open-source dataset. The project is feasible and can be completed within the time frame. The biggest risk is the user privacy, but we will not collect any personal information if the user provides consent.
 
-Expected benefit: Easier scheduling, more efficient time management
-
-Novelty: Likely very novel?
-
-Value: High, helps students and the university schedule more efficiently, balance the preferences of students and professors
-
-Data: Data of courses (scraped from AIMS Master Timetable), user preference data (for which timetables are scored higher)
-
-Data collection plan: Survey students to select preferred timetables from generated timetables or score generated timetables. (eg. Ask students to score a set of 5 timetables from 0-100 based on the set of criteria listed above.)
-
-Implementation: Create a dataset with scored timetables and optimise the regression/convolutional model to assign appropriate scores to schedules.
-
-Tools: uhhh
-
-Risks: Extremely minor: No identifying information needs to be collected (eg. name, class, major) and all collected information is not 
-
-Mitigation: N/A
-
-Access to hardware: For Linear regression: Trivial (one laptop)
-
-Access to software:
-
-Access to data: 
 
 % ======================= References (included in page limit) =======================
 % Cite sources in the text and replace the sample entry below.
