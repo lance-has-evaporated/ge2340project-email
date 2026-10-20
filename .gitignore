@@ -34,4 +34,6 @@
 # macos
 *.DS_Store
 
+# binary
 *.pdf
+*.zip
